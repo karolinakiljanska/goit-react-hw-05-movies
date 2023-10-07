@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
-
-export const MoviesContainer = styled.div`
+import styled from 'styled-components';
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -11,14 +10,13 @@ export const MoviesContainer = styled.div`
   background-color: #fdf0f7;
   width: 100%;
 `;
-export const MoviesSearchForm = styled.form`
+export const Form = styled.form`
   width: 45%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-
-export const MoviesSearchInput = styled.input`
+export const Input = styled.input`
   width: 85%;
   max-width: 500px;
   min-width: 100px;
@@ -53,8 +51,7 @@ export const MoviesSearchInput = styled.input`
     outline: 0;
   }
 `;
-
-export const MoviesSearchBtn = styled.button`
+export const Button = styled.button`
   height: 35px;
   background-color: #ffffff;
   color: #4663be;
@@ -73,28 +70,3 @@ export const MoviesSearchBtn = styled.button`
 export const MoviesSearchIcon = styled.svg`
   display: block;
 `;
-
-export const MoviesSearchList = styled.ul`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-top: 30px;
-`;
-
-export const MoviesSearchItemImg = styled.img`
-  width: 270px;
-  height: 405px;
-`;
-
-export const MoviesSearchItemPrg = styled.p`
-    height: 50px;
-    width: 270px;
-
-    color: #212121;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-}`;

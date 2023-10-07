@@ -1,52 +1,31 @@
 import { useEffect, useState } from 'react';
+import { fetchReviews } from 'Services/Api';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { API_KEY } from 'settings/moviesAPI';
-import { ReviewsList, ReviewsItemPrg, ReviewsItem } from './Reviews.styled';
 
 export const Reviews = () => {
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
+  console.log(movieId);
 
   useEffect(() => {
-    const getMovieReviewsById = async () => {
-      try {
-        const respons = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
-        );
-
-        const data = respons.data.results;
-
-        const filteredData = data.map(({ author, content, id }) => ({
-          id,
-          author,
-          content,
-        }));
-        setReviews(filteredData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getMovieReviewsById();
+    fetchReviews(movieId).then(setReviews);
   }, [movieId]);
 
+  if (!reviews) {
+    return;
+  }
   return (
-    <>
-      {reviews !== null && reviews.length !== 0 ? (
-        <ReviewsList>
-          {reviews.map(({ id, author, content }) => {
-            return (
-              <ReviewsItem key={id}>
-                <h3>Author: {author}</h3>
-                <ReviewsItemPrg>{content}</ReviewsItemPrg>
-              </ReviewsItem>
-            );
-          })}
-        </ReviewsList>
-      ) : (
-        <div>Sorry, but we don't have any reviews for this movie.</div>
-      )}
-    </>
+    <div>
+      <ul>
+        {<p>There is no reviews yet</p> ||
+          reviews.map(review => (
+            <li key={review.id}>
+              <p> Author: {review.author}</p>
+              <span>{review.content}</span>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 };
+// export default Reviews;

@@ -1,12 +1,4 @@
-import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-
-export const MovieDatailsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`;
+import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 30px 60px 20px 60px;
@@ -17,76 +9,80 @@ export const Container = styled.div`
   min-height: 1000px;
   position: relative;
 `;
-
-export const ContainerForImgAndDescription = styled.div`
+export const GoBack = styled.div`
   display: flex;
-`;
 
-export const MoviesIdImg = styled.img`
-  height: 500px;
-  margin: 30px;
-  margin-top: 50px;
-`;
-
-export const DescriptionContainer = styled.div`
-  height: 100%;
-  padding-top: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 700px;
-`;
-
-export const AdditionalInfo = styled.div`
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-export const AdditionalLink = styled(Link)`
-  font-size: 17px;
-  color: #212121;
-  font-weight: 500;
-
-  &:hover,
-  &.active {
-    color: #ff0068;
-  }
-`;
-
-export const LoaderContainer = styled.div`
-  margin-top: 50px;
-`;
-
-export const BackLink = styled(Link)`
-  padding: 15px;
-  position: absolute;
-  color: black;
-  font-size: 18px;
-  font-weight: 600;
-  top: 0;
-  left: 0;
-
-  &:hover {
-    color: #ff0068;
-  }
-`;
-
-export const ErrorContainer = styled.div`
-  display: flex;
+  width: 100px;
   align-items: center;
   justify-content: center;
-  margin: 30px 60px 20px 60px;
-  box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.67);
+  border: 2px solid gray;
+  border-radius: 4px;
+  margin: 5px 10px;
+  padding: 4px;
+`;
+export const FilmCard = styled.div`
+  display: flex;
+
+  padding: 10px 10px;
+  border-bottom: 1px solid gray;
+
+  @media screen and (max-width: 647px) {
+     {
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+`;
+export const Title = styled.p`
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 20px;
+  padding-top: 5px;
+  border-top: 2px solid gray;
+`;
+export const FilmImg = styled.img`
+  border-radius: 10px;
+  border: 2px solid gray;
+  margin-right: 20px;
+  padding: 0;
+  width: 250px;
+`;
+export const OwerviewWrapper = styled.div`
+  padding: 5px 15px;
+
+  font-size: 18px;
+  font-weight: 400;
+  text-align: justify;
+  line-height: 1.4;
+  border-radius: 6px;
   background-color: #fdf0f7;
-  height: 200px;
-  width: 100%;
-  position: relative;
 `;
 
-export const ErrorPrg = styled.p`
-font-size: 22px;
-    font-weight: 600;
-    color: #212121;
-}`;
+export const LinkWrapper = styled.div`
+  display: flex;
+  padding: 5px 50px;
+
+  gap: 15px;
+  border-bottom: 3px solid gray;
+`;
+export const Cast = styled.div`
+  display: flex;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  border-radius: 4px;
+  padding: 4px;
+`;
+
+export const Reviews = styled.div`
+  display: flex;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  border-radius: 4px;
+  padding: 4px;
+`;
